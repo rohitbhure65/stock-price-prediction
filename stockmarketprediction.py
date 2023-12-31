@@ -73,7 +73,7 @@ scale_factor = 1/scaler[0]
 y_predicted = y_predicted * scale_factor
 y_test = y_test * scale_factor
 
-st.sidebar('Preficitons Vs Original')
+st.header('Predection Vs Original')
 fig2 = plt.figure(figsize=(12,6))
 plt.plot(y_test, 'b')
 plt.plot(y_predicted, 'r')
@@ -82,5 +82,5 @@ plt.title("Predection Vs Original")
 plt.grid()
 plt.xlabel('Time')
 plt.ylabel('Price')
-st.pyplot(fig)
+st.pyplot(fig2)
 
