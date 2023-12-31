@@ -7,16 +7,18 @@ import datetime as dt
 import yfinance as yf
 from sklearn.preprocessing import MinMaxScaler
 
-st.title('stock market trend prediction')
+st.title('Stock Market Trend Prediction Using LSTM and Sentiment analysis')
 st.divider()
 st.sidebar.header('User Input')
 
-STOCK = st.sidebar.text_input("Enter Stock Ticker", 'SBIN.NS')
+STOCK = st.sidebar.text_input("Enter Stock Ticker", 'TSLA')
 start_date = st.sidebar.date_input("Enter Start Date", dt.date(2000,1,1))
 end_date = st.sidebar.date_input("Enter End Date", dt.datetime.now().date())
 
 df = yf.download(STOCK,start=start_date, end=end_date, progress=False)
-st.subheader('Stock " '+STOCK+' ('+str(pd.to_datetime(start_date).date())+' - '+str(pd.to_datetime(end_date).date()))
+st.subheader('Stock '+STOCK+' ( '+str(pd.to_datetime(start_date).date())+' - '+str(pd.to_datetime(end_date).date())+' )')
+
+st.table(df.describe())
 
 st.header('Closing Price VS Time Chart')
 fig = plt.figure(figsize=(12,6))
@@ -31,7 +33,7 @@ ma100 = df.Close.rolling(100).mean()
 fig = plt.figure(figsize=(12,6))
 plt.plot(df.Close)
 plt.plot(ma100, 'r')
-plt.legend(('Closing Price Vs Time Chart with 100 Days Moving Average'))
+plt.legend(['Closing Price','100 Days Moving Average'])
 plt.grid()
 st.pyplot(fig)
 
@@ -46,8 +48,8 @@ plt.legend(['Closing price', '100 Days Moving Average', '200 Days Moving Average
 plt.grid()
 st.pyplot(fig)
 
-data_training = pd.DataFrame(df['Close'][0:int(len(df*0.70))])
-data_testing = pd.DataFrame(df['Close'][int(len(df)*0.70):int(len(df))])
+data_training = pd.DataFrame(df['Close'][0:int(len(df)*0.70)])
+data_testing = pd.DataFrame(df['Close'][int(len(df)*0.70): int(len(df))])
 
 
 scaler = MinMaxScaler(feature_range=(0,1))
