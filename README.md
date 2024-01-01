@@ -51,3 +51,6 @@ Start the server
 
 Explore the Jupyter Notebooks in the notebooks directory for detailed analysis and model implementation.
 
+## License:
+
+This project is licensed under the MIT License - see the LICENSE.md file for details.
