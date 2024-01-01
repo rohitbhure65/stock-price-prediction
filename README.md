@@ -1,5 +1,5 @@
 
-# Stock Price Prediction Project
+# Stock Price Prediction Using Machine Learning Stacked LSTM Model Project Version 1.0
 
 Welcome to the Stock Price Prediction project repository! This project utilizes machine learning techniques to predict stock prices based on historical data. Predicting stock prices is a challenging task, and this project aims to explore different machine learning models to forecast future stock prices.
 
@@ -36,17 +36,10 @@ Go to the project directory
   cd stock-price-prediction
 ```
 
-Install dependencies
-
-```bash
-  pip install -r requirements.txt
-  npm install
-```
-
 Start the server
 
 ```bash
-  npm run start
+  streamlit run stockmarketpredicition.py
 ```
 
 Explore the Jupyter Notebooks in the notebooks directory for detailed analysis and model implementation.
