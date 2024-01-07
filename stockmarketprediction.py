@@ -11,7 +11,7 @@ st.title('Stock Market Trend Prediction Using LSTM and Sentiment analysis')
 st.divider()
 st.sidebar.header('User Input')
 
-STOCK = st.sidebar.text_input("Enter Stock Ticker", 'TSLA')
+STOCK = st.sidebar.text_input("Enter Stock Ticker", 'ADANIPORTS.NS')
 start_date = st.sidebar.date_input("Enter Start Date", dt.date(2000,1,1))
 end_date = st.sidebar.date_input("Enter End Date", dt.datetime.now().date())
 
